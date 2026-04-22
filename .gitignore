@@ -10,3 +10,4 @@ build/
 .current_prompt.md
 logs/
 .agent_done
+venv/
