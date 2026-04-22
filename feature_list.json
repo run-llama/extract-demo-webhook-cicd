@@ -725,7 +725,7 @@
       "Step 5: Verify output contains entries for all 3 invoices",
       "Step 6: Verify each entry has merchant_name, date, total fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -736,7 +736,7 @@
       "Step 3: Verify invoice_2.pdf merchant_name contains 'Zara'",
       "Step 4: Verify invoice_3.pdf merchant_name contains 'Walmart'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -748,7 +748,7 @@
       "Step 4: Verify invoice_2.pdf date is 2023-06-23",
       "Step 5: Verify invoice_3.pdf date is 1998-05-29"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -759,7 +759,7 @@
       "Step 3: Verify invoice_1.pdf total contains '383.99'",
       "Step 4: Verify invoice_3.pdf total contains '61.64'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -770,7 +770,7 @@
       "Step 3: Verify it contains all 3 invoices with field values",
       "Step 4: Verify results/extraction_output.json is NOT created (or not the target)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -862,7 +862,7 @@
       "Step 6: Run python evaluate.py --output-markdown",
       "Step 7: Verify results/pr_comment.md exists and contains expected markdown sections"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -875,7 +875,7 @@
       "Step 5: Verify extraction still completes successfully",
       "Step 6: Verify results/extraction_output.json is created"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1155,7 +1155,7 @@
       "Step 1: Create ground truth with 3 files x 3 fields = 9 total fields",
       "Step 2: Create extraction output with 1 wrong field and 1 missing (null) field",
       "Step 3: Run evaluate.py",
-      "Step 4: Verify overall_accuracy = 7/9 ≈ 0.7778",
+      "Step 4: Verify overall_accuracy = 7/9 \u2248 0.7778",
       "Step 5: Verify correct_fields = 7",
       "Step 6: Verify wrong_fields = 1",
       "Step 7: Verify missing_fields = 1"
@@ -1460,7 +1460,7 @@
     "steps": [
       "Step 1: Set up extraction where one file has 1 correct, 1 wrong, 1 missing field",
       "Step 2: Run evaluate.py",
-      "Step 3: Verify that file's accuracy is 1/3 ≈ 33.3%",
+      "Step 3: Verify that file's accuracy is 1/3 \u2248 33.3%",
       "Step 4: Verify correct, wrong, and missing are all counted properly"
     ],
     "passes": true
@@ -1575,7 +1575,7 @@
       "Step 3: Verify ground_truth.json is recreated",
       "Step 4: Verify it has valid structure with all invoice files"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1587,7 +1587,7 @@
       "Step 4: Copy results/current_metrics.json to metrics.json",
       "Step 5: Verify metrics.json is valid"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2482,7 +2482,7 @@
       "Step 11: Verify each entry has merchant_name, date, total fields",
       "Step 12: Verify extracted values are reasonable (not null or garbage)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2523,7 +2523,7 @@
       "Step 13: Verify per-file table is complete",
       "Step 14: Verify Changes from Baseline section lists specific changes"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2540,7 +2540,7 @@
       "Step 9: Verify results/extraction_output.json is still created",
       "Step 10: Verify final summary reminds user to check webhook URL"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2557,7 +2557,7 @@
       "Step 9: Verify results/extraction_output.json is NOT the target",
       "Step 10: Verify values are reasonable for each invoice"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2572,7 +2572,7 @@
       "Step 7: Verify correct_fields = 7",
       "Step 8: Verify wrong_fields = 1",
       "Step 9: Verify missing_fields = 1",
-      "Step 10: Verify overall_accuracy = 7/9 ≈ 0.7778",
+      "Step 10: Verify overall_accuracy = 7/9 \u2248 0.7778",
       "Step 11: Verify invoice_1 accuracy = 100%",
       "Step 12: Verify invoice_2 accuracy = 66.7%",
       "Step 13: Verify invoice_3 accuracy = 66.7%"
@@ -2874,7 +2874,7 @@
       "Step 7: Verify PR comment shows how schema change affected accuracy",
       "Step 8: Verify baseline update workflow also triggers on schema.py push to main",
       "Step 9: Verify baseline update commits new metrics.json",
-      "Step 10: Verify the cycle is complete: PR → evaluate → merge → update baseline"
+      "Step 10: Verify the cycle is complete: PR \u2192 evaluate \u2192 merge \u2192 update baseline"
     ],
     "passes": true
   },

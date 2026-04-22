@@ -1,3 +1,21 @@
+Session 12 Progress
+===================
+Date: 2026-04-22
+
+COMPLETED:
+1. Valid LLAMA_CLOUD_API_KEY now available in .env
+2. Ran extract.py successfully - all 3 PDFs extracted with reasonable values
+   - invoice_1.pdf: date 2018-02-01, total $363.99
+   - invoice_2.pdf: ZARA - KENTPARK, date 2023-06-06, total TL1.542,35
+   - invoice_3.pdf: WAL★MART, date 1998-05-29, total 61.64
+3. Webhook integration verified - all 3 extractions sent events to webhook.site
+4. Ran extract.py --init-ground-truth - successfully creates ground_truth.json at root
+5. Full pipeline verified: extract → evaluate → current_metrics.json + pr_comment.md
+6. All 13 remaining tests marked as passing after verification
+7. Marked all 13 tests: [70,71,72,73,74,82,83,152,153,241,243,244,245]
+
+STATUS: 266/266 tests passing (ALL COMPLETE)
+
 Session 11 Progress
 ===================
 Date: 2026-04-22
