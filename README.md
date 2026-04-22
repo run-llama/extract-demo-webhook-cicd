@@ -126,6 +126,9 @@ Webhook support is built into `extract.py`. When the `WEBHOOK_URL` environment v
 3. Open the webhook URL in your browser to see the payloads:
    https://webhook.site/b87995d5-e449-4074-b311-e0deed2d34dc
 
+4. Or view all webhook payloads in the dashboard:
+   https://webhook.site/#!/view/45b6e6e7-1890-4883-badd-45b24c81f770/38bfcba5-6cc3-4a99-874f-2c40c8955049/1
+
 The webhook fires `extract.success` or `extract.error` events for each invoice processed.
 
 **Note:** Webhooks are not used in the CI pipeline -- `WEBHOOK_URL` is not set in GitHub Actions, so extraction uses polling only.

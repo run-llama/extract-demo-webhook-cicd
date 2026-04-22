@@ -4,10 +4,14 @@ __pycache__/
 results/*.json
 results/*.md
 .venv/
+venv/
 *.egg-info/
 dist/
 build/
 .current_prompt.md
 logs/
 .agent_done
-venv/
+.fix_context.*
+.summary_done
+metrics.json
+thoughts/

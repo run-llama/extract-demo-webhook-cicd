@@ -1,20 +1,83 @@
 """Extract structured data from receipt PDFs using LlamaExtract."""
 
 import argparse
+import asyncio
 import json
 import os
 import sys
-import time
 from pathlib import Path
 
 from dotenv import load_dotenv
-from llama_cloud import LlamaCloud
+from llama_cloud import AsyncLlamaCloud
 
 from schema import InvoiceSchema
 
 
-def main():
-    """Run extraction on all PDFs in data/ directory."""
+async def process_pdf(
+    client: AsyncLlamaCloud,
+    pdf_path: Path,
+    webhook_url: str | None,
+) -> tuple[str, dict]:
+    """Process a single PDF and return (filename, result_dict)."""
+    filename = pdf_path.name
+    print(f"  [{filename}] Uploading...")
+    with open(pdf_path, "rb") as f:
+        file_obj = await client.files.create(file=f, purpose="extract")
+    print(f"  [{filename}] Uploaded. File ID: {file_obj.id}")
+
+    webhook_configurations = None
+    if webhook_url:
+        webhook_configurations = [
+            {
+                "webhook_url": webhook_url,
+                "webhook_events": ["extract.success", "extract.error"],
+                "webhook_output_format": "json",
+            }
+        ]
+        print(f"  [{filename}] Webhook configured: {webhook_url}")
+
+    print(f"  [{filename}] Starting extraction...")
+    job = await client.extract.create(
+        file_input=file_obj.id,
+        configuration={
+            "data_schema": InvoiceSchema.model_json_schema(),
+            "extraction_target": "per_doc",
+            "tier": "agentic",
+        },
+        webhook_configurations=webhook_configurations,
+    )
+
+    start_time = asyncio.get_event_loop().time()
+    while job.status not in ("COMPLETED", "FAILED", "CANCELLED"):
+        await asyncio.sleep(2)
+        try:
+            job = await client.extract.get(job.id)
+        except Exception as e:
+            print(f"  [{filename}] Warning: polling error ({e}), retrying...")
+            continue
+
+    elapsed = asyncio.get_event_loop().time() - start_time
+
+    if job.status == "COMPLETED":
+        result_data = job.extract_result
+        if isinstance(result_data, list):
+            result_data = result_data[0] if result_data else {}
+
+        invoice = InvoiceSchema.model_validate(result_data or {})
+        result = {
+            "merchant_name": invoice.merchant_name,
+            "date": invoice.date,
+            "total": invoice.total,
+        }
+        print(f"  [{filename}] Completed in {elapsed:.1f}s: {result}")
+        return filename, result
+    else:
+        print(f"  [{filename}] Error: extraction {job.status} after {elapsed:.1f}s")
+        return filename, {"merchant_name": None, "date": None, "total": None}
+
+
+async def main():
+    """Run extraction on all PDFs in data/ directory concurrently."""
     load_dotenv()
 
     parser = argparse.ArgumentParser(description="Extract data from receipt PDFs")
@@ -32,8 +95,7 @@ def main():
         sys.exit(1)
 
     webhook_url = os.getenv("WEBHOOK_URL")
-
-    client = LlamaCloud(api_key=api_key)
+    client = AsyncLlamaCloud(api_key=api_key)
 
     data_dir = Path("data")
     pdf_files = sorted(data_dir.glob("*.pdf"))
@@ -41,85 +103,30 @@ def main():
     if not pdf_files:
         print("No PDF files found in data/ directory.")
         results = {}
+        success_count = 0
+        fail_count = 0
     else:
         print(f"Found {len(pdf_files)} PDF(s) to process.\n")
+
+        outcomes = await asyncio.gather(
+            *(process_pdf(client, pdf, webhook_url) for pdf in pdf_files),
+            return_exceptions=True,
+        )
+
         results = {}
         success_count = 0
         fail_count = 0
-
-        for pdf_path in pdf_files:
-            filename = pdf_path.name
-            print(f"Processing {filename}...")
-
-            # Upload file
-            print(f"  Uploading {filename}...")
-            with open(pdf_path, "rb") as f:
-                file_obj = client.files.create(file=f, purpose="extract")
-            print(f"  Uploaded. File ID: {file_obj.id}")
-
-            # Build extraction kwargs
-            extract_kwargs = dict(
-                file_input=file_obj.id,
-                configuration={
-                    "data_schema": InvoiceSchema.model_json_schema(),
-                    "extraction_target": "per_doc",
-                    "tier": "agentic",
-                },
-            )
-
-            # Add webhook if configured
-            if webhook_url:
-                extract_kwargs["webhook_configurations"] = [
-                    {
-                        "webhook_url": webhook_url,
-                        "webhook_events": ["extract.success", "extract.error"],
-                        "webhook_output_format": "json",
-                    }
-                ]
-                print(f"  Webhook configured: events will be sent to {webhook_url}")
-
-            # Create extraction job
-            print(f"  Starting extraction...")
-            job = client.extract.create(**extract_kwargs)
-
-            # Poll for completion
-            start_time = time.time()
-            while job.status not in ("COMPLETED", "FAILED", "CANCELLED"):
-                time.sleep(2)
-                try:
-                    job = client.extract.get(job.id)
-                except Exception as e:
-                    print(f"  Warning: polling error ({e}), retrying...")
-                    continue
-
-            elapsed = time.time() - start_time
-
-            if job.status == "COMPLETED":
-                result_data = job.extract_result
-                if isinstance(result_data, list) and len(result_data) > 0:
-                    result_data = result_data[0]
-                if hasattr(result_data, "dict"):
-                    result_data = result_data.dict()
-                elif hasattr(result_data, "model_dump"):
-                    result_data = result_data.model_dump()
-                elif isinstance(result_data, dict):
-                    pass
-                else:
-                    result_data = {"merchant_name": None, "date": None, "total": None}
-
-                results[filename] = {
-                    "merchant_name": result_data.get("merchant_name"),
-                    "date": result_data.get("date"),
-                    "total": result_data.get("total"),
-                }
-                success_count += 1
-                print(f"  Completed in {elapsed:.1f}s: {results[filename]}")
-            else:
-                print(f"  Error: extraction {job.status} for {filename} after {elapsed:.1f}s")
-                results[filename] = {"merchant_name": None, "date": None, "total": None}
+        for outcome in outcomes:
+            if isinstance(outcome, Exception):
+                print(f"  Unexpected error: {outcome}")
                 fail_count += 1
-
-            print()
+            else:
+                filename, result = outcome
+                results[filename] = result
+                if result["merchant_name"] is not None:
+                    success_count += 1
+                else:
+                    fail_count += 1
 
     # Save results
     if args.init_ground_truth:
@@ -131,7 +138,7 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(dict(sorted(results.items())), f, indent=2, ensure_ascii=False)
 
-    print(f"Results saved to {output_path}")
+    print(f"\nResults saved to {output_path}")
     print(f"Summary: {success_count} succeeded, {fail_count} failed out of {len(pdf_files)} files.")
 
     if webhook_url:
@@ -142,4 +149,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
