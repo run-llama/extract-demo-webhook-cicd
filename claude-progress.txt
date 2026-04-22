@@ -1,4 +1,4 @@
-Session 31 Progress
+Session 32 Progress
 ===================
 Date: 2026-04-22
 
@@ -7,9 +7,8 @@ COMPLETED:
 2. Verified schema imports correctly (merchant_name, date, total)
 3. Verified ground truth and metrics (100% accuracy, 9/9 fields correct)
 4. Verified CI/CD workflows present (extract-eval.yml, update-baseline.yml)
-5. Verified all 3 invoice PDFs present in data/
-6. Confirmed 266/266 tests passing, 0 failing
-7. No new work needed - project fully complete
+5. Confirmed 266/266 tests passing, 0 failing
+6. No new work needed - project fully complete
 
 STATUS: 266/266 tests passing (ALL COMPLETE)
 
@@ -22,4 +21,4 @@ Previous Sessions Summary
 - Session 13: Fixed ground truth / metrics mismatch from Session 12
 - Sessions 14-21: Verification passes - confirmed all 266/266 tests still passing
 - Session 22: Fixed 3 triage-flagged webhook tests (already implemented, just needed marking)
-- Sessions 23-31: Verification passes - all 266/266 tests confirmed passing
+- Sessions 23-32: Verification passes - all 266/266 tests confirmed passing
