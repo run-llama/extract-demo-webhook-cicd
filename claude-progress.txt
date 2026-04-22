@@ -1,3 +1,23 @@
+Session 11 Progress
+===================
+Date: 2026-04-22
+
+COMPLETED:
+1. Verified existing tests still pass:
+   - evaluate.py: correct accuracy table (100% for all 3 invoices)
+   - evaluate.py --output-markdown: generates correct PR comment with delta
+2. No LLAMA_CLOUD_API_KEY available in .env (field is empty)
+
+STATUS: 253/266 tests passing (unchanged)
+
+REMAINING (13 tests):
+All 13 require running extract.py with a valid LLAMA_CLOUD_API_KEY to call LlamaExtract API.
+No further progress possible without a valid API key.
+
+NEXT STEPS:
+- A valid LLAMA_CLOUD_API_KEY must be provided in .env to proceed
+- Once key is available: run extract.py, verify output, mark remaining 13 tests
+
 Session 10 Progress
 ===================
 Date: 2026-04-22
