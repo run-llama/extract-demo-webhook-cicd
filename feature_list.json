@@ -9,7 +9,7 @@
       "Step 4: Verify it contains tabulate>=0.9",
       "Step 5: Verify it contains python-dotenv>=1.0"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -19,7 +19,7 @@
       "Step 2: Verify it contains LLAMA_CLOUD_API_KEY= placeholder",
       "Step 3: Verify it contains WEBHOOK_URL= placeholder"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -30,7 +30,7 @@
       "Step 3: Verify __pycache__/ is listed in .gitignore",
       "Step 4: Verify results/*.json is excluded (but not ground_truth.json or metrics.json)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -41,7 +41,7 @@
       "Step 3: Verify invoice_2.pdf exists in data/",
       "Step 4: Verify invoice_3.pdf exists in data/"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -50,7 +50,7 @@
       "Step 1: Check that results/ directory exists",
       "Step 2: Verify results/.gitkeep exists"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -63,7 +63,7 @@
       "Step 5: Verify InvoiceSchema has date field",
       "Step 6: Verify InvoiceSchema has total field"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -74,7 +74,7 @@
       "Step 3: Verify merchant_name has default=None",
       "Step 4: Verify merchant_name has a descriptive Field description about store/merchant name"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -85,7 +85,7 @@
       "Step 3: Verify date has default=None",
       "Step 4: Verify date Field description mentions YYYY-MM-DD format"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -96,7 +96,7 @@
       "Step 3: Verify total has default=None",
       "Step 4: Verify total Field description mentions currency symbol"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -106,7 +106,7 @@
       "Step 2: Create instance with no arguments: InvoiceSchema()",
       "Step 3: Verify all fields are None"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -117,7 +117,7 @@
       "Step 3: Verify result is a dict with 'properties' key",
       "Step 4: Verify properties include merchant_name, date, total"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -126,7 +126,7 @@
       "Step 1: Check that extract.py exists",
       "Step 2: Verify it can be parsed by Python (python -c 'import ast; ast.parse(open(\"extract.py\").read())')"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -137,7 +137,7 @@
       "Step 3: Verify it calls load_dotenv() or equivalent",
       "Step 4: Verify it reads LLAMA_CLOUD_API_KEY from os.environ or os.getenv"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -147,7 +147,7 @@
       "Step 2: Verify it reads WEBHOOK_URL from os.environ or os.getenv",
       "Step 3: Verify WEBHOOK_URL is treated as optional (no error if missing)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -156,7 +156,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify it imports InvoiceSchema from schema"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -166,7 +166,7 @@
       "Step 2: Verify it scans the data/ directory for PDF files",
       "Step 3: Verify it processes all found PDFs (not hardcoded filenames)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -176,7 +176,7 @@
       "Step 2: Verify it creates a LlamaCloud client",
       "Step 3: Verify for each PDF it calls file upload with purpose='extract'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -187,7 +187,7 @@
       "Step 3: Verify extraction config includes extraction_target='per_doc'",
       "Step 4: Verify extraction config includes tier='agentic'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -200,7 +200,7 @@
       "Step 5: Verify webhook_output_format is 'json'",
       "Step 6: Verify a message is printed about webhook being configured"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -209,7 +209,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify that when WEBHOOK_URL is not set or empty, no webhook_configurations key is added"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -220,7 +220,7 @@
       "Step 3: Verify loop continues while status not in COMPLETED, FAILED, CANCELLED",
       "Step 4: Verify time.sleep(2) between polling checks"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -230,7 +230,7 @@
       "Step 2: Verify on COMPLETED status it extracts result from job.extract_result",
       "Step 3: Verify result is stored in the output dictionary"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -241,7 +241,7 @@
       "Step 3: Verify on CANCELLED status it logs an error",
       "Step 4: Verify null result is recorded for failed extractions"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -251,7 +251,7 @@
       "Step 2: Verify default output path is results/extraction_output.json",
       "Step 3: Verify output is valid JSON with filename keys and field value dicts"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -261,7 +261,7 @@
       "Step 2: Verify --init-ground-truth CLI argument is supported",
       "Step 3: Verify when flag is passed, output goes to ground_truth.json not results/extraction_output.json"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -271,7 +271,7 @@
       "Step 2: Verify it prints a summary of extraction results",
       "Step 3: Verify if WEBHOOK_URL was set, it reminds user to check webhook URL in browser"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -281,7 +281,7 @@
       "Step 2: Verify output JSON is a dict keyed by filename",
       "Step 3: Verify each value is a dict with merchant_name, date, total keys"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -290,7 +290,7 @@
       "Step 1: Check that evaluate.py exists",
       "Step 2: Verify it can be parsed by Python"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -299,7 +299,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify it reads and parses ground_truth.json"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -308,7 +308,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify it reads and parses results/extraction_output.json"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -318,7 +318,7 @@
       "Step 2: Verify field comparison normalizes strings (lowercase + strip whitespace)",
       "Step 3: Verify comparison is exact after normalization (no fuzzy matching)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -327,7 +327,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify a field is 'correct' when extracted matches ground truth after normalization"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -337,7 +337,7 @@
       "Step 2: Verify a field is 'missing' when extracted is None but ground truth has value",
       "Step 3: Verify missing fields count as INCORRECT"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -347,7 +347,7 @@
       "Step 2: Verify a field is 'wrong' when extracted is non-null but doesn't match ground truth",
       "Step 3: Verify wrong fields count as INCORRECT"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -356,7 +356,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify if ground truth field is None and extracted has value, it is not counted"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -366,7 +366,7 @@
       "Step 2: Verify total_fields counts only non-null ground truth fields",
       "Step 3: Verify overall_accuracy = correct_fields / total_fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -376,7 +376,7 @@
       "Step 2: Verify per-file accuracy is computed for each invoice",
       "Step 3: Verify per-file accuracy = correct fields for that file / total GT fields for that file"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -386,7 +386,7 @@
       "Step 2: Verify it writes metrics to results/current_metrics.json",
       "Step 3: Verify metrics include overall_accuracy, per_file, total_fields, correct_fields, missing_fields, wrong_fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -396,7 +396,7 @@
       "Step 2: Verify output metrics include a timestamp field",
       "Step 3: Verify timestamp is in ISO format"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -407,7 +407,7 @@
       "Step 3: Verify per_file entries include fields dict",
       "Step 4: Verify each field entry has expected, extracted, and correct keys"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -417,7 +417,7 @@
       "Step 2: Verify it attempts to load metrics.json as baseline",
       "Step 3: Verify it handles missing metrics.json gracefully (first run scenario)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -427,7 +427,7 @@
       "Step 2: Verify delta_accuracy = new_accuracy - baseline_accuracy",
       "Step 3: Verify per-field changes are tracked (was wrong now correct, etc.)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -437,7 +437,7 @@
       "Step 2: Verify it imports tabulate",
       "Step 3: Verify it prints a formatted table of results to stdout"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -447,7 +447,7 @@
       "Step 2: Verify --output-markdown CLI argument is supported",
       "Step 3: Verify when flag is passed, results/pr_comment.md is written"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -458,7 +458,7 @@
       "Step 3: Verify it includes overall accuracy percentage",
       "Step 4: Verify it includes delta vs baseline when baseline exists"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -470,7 +470,7 @@
       "Step 4: Verify each invoice file has a row in the table",
       "Step 5: Verify field status shows 'correct', 'wrong', or 'missing'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -480,7 +480,7 @@
       "Step 2: Verify pr_comment.md includes '### Changes from Baseline' section when baseline exists",
       "Step 3: Verify changes list fields that changed status between baseline and current"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -489,7 +489,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify when metrics.json doesn't exist, markdown output omits delta and changes section"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -498,7 +498,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify pr_comment.md includes schema name and field list in footer"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -510,7 +510,7 @@
       "Step 4: Verify it contains invoice_3.pdf key",
       "Step 5: Verify each entry has merchant_name, date, total fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -520,7 +520,7 @@
       "Step 2: Verify invoice_1.pdf date is approximately 2019-01-02",
       "Step 3: Verify invoice_1.pdf total is approximately $383.99"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -531,7 +531,7 @@
       "Step 3: Verify invoice_2.pdf date is 2023-06-23",
       "Step 4: Verify invoice_2.pdf total contains '1,542.35' or similar TL amount"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -542,7 +542,7 @@
       "Step 3: Verify invoice_3.pdf date is 1998-05-29",
       "Step 4: Verify invoice_3.pdf total is $61.64"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -554,7 +554,7 @@
       "Step 4: Verify it has per_file dict",
       "Step 5: Verify it has total_fields, correct_fields, missing_fields, wrong_fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -563,7 +563,7 @@
       "Step 1: Check that .github/workflows/extract-eval.yml exists",
       "Step 2: Verify it is valid YAML"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -573,7 +573,7 @@
       "Step 2: Verify trigger is pull_request",
       "Step 3: Verify paths filter includes 'schema.py'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -582,7 +582,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify runs-on is ubuntu-latest"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -591,7 +591,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify permissions section includes pull-requests: write"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -600,7 +600,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify first step uses actions/checkout@v4"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -610,7 +610,7 @@
       "Step 2: Verify it uses actions/setup-python@v5",
       "Step 3: Verify python-version is '3.11'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -619,7 +619,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify step runs 'pip install -r requirements.txt'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -629,7 +629,7 @@
       "Step 2: Verify extraction step runs 'python extract.py'",
       "Step 3: Verify LLAMA_CLOUD_API_KEY is set from secrets"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -638,7 +638,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify evaluation step runs 'python evaluate.py --output-markdown'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -649,7 +649,7 @@
       "Step 3: Verify it reads results/pr_comment.md",
       "Step 4: Verify it posts content as a PR comment"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -661,7 +661,7 @@
       "Step 4: Verify if found, it updates the existing comment",
       "Step 5: Verify if not found, it creates a new comment"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -670,7 +670,7 @@
       "Step 1: Check that .github/workflows/update-baseline.yml exists",
       "Step 2: Verify it is valid YAML"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -680,7 +680,7 @@
       "Step 2: Verify trigger is push to branches: [main]",
       "Step 3: Verify paths filter includes 'schema.py'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -691,7 +691,7 @@
       "Step 3: Verify it runs python evaluate.py",
       "Step 4: Verify LLAMA_CLOUD_API_KEY is set from secrets"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -703,7 +703,7 @@
       "Step 4: Verify it commits metrics.json",
       "Step 5: Verify it pushes to main"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -712,7 +712,7 @@
       "Step 1: Open .github/workflows/update-baseline.yml",
       "Step 2: Verify it checks for changes before committing (git diff --cached --quiet || ...)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -782,7 +782,7 @@
       "Step 4: Verify output contains a formatted table",
       "Step 5: Verify results/current_metrics.json is created"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -792,7 +792,7 @@
       "Step 2: Verify results/pr_comment.md is created",
       "Step 3: Verify it contains markdown-formatted content"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -803,7 +803,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify overall_accuracy is close to 1.0 (100%)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -815,7 +815,7 @@
       "Step 4: Verify accuracy is less than 100%",
       "Step 5: Verify wrong_fields count is at least 1"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -826,7 +826,7 @@
       "Step 3: Verify the null field is marked as 'missing'",
       "Step 4: Verify missing_fields count is at least 1"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -837,7 +837,7 @@
       "Step 3: Run python evaluate.py --output-markdown",
       "Step 4: Verify pr_comment.md shows positive delta"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -848,7 +848,7 @@
       "Step 3: Run python evaluate.py --output-markdown",
       "Step 4: Verify pr_comment.md shows negative delta"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -885,7 +885,7 @@
       "Step 2: Verify it imports LlamaCloud from llama_cloud",
       "Step 3: Verify client is initialized with api_key parameter"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -896,7 +896,7 @@
       "Step 3: Verify it doesn't crash",
       "Step 4: Verify it produces empty or appropriate output"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -906,7 +906,7 @@
       "Step 2: Run python evaluate.py",
       "Step 3: Verify it shows a clear error message about missing ground truth"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -916,7 +916,7 @@
       "Step 2: Run python evaluate.py",
       "Step 3: Verify it shows a clear error message about missing extraction results"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -925,7 +925,7 @@
       "Step 1: Open extract.py and verify it uses argparse for --init-ground-truth",
       "Step 2: Open evaluate.py and verify it uses argparse for --output-markdown"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -936,7 +936,7 @@
       "Step 3: Verify all packages install successfully",
       "Step 4: Verify all imports in schema.py, extract.py, evaluate.py work"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -945,7 +945,7 @@
       "Step 1: Run python -c 'from schema import InvoiceSchema'",
       "Step 2: Verify no output or errors (clean import)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -955,7 +955,7 @@
       "Step 2: Verify it contains project name or description",
       "Step 3: Verify it contains setup/usage instructions"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -965,7 +965,7 @@
       "Step 2: Verify it has executable permissions",
       "Step 3: Verify it starts with a shebang line"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -974,7 +974,7 @@
       "Step 1: Open init.sh",
       "Step 2: Verify it runs pip install -r requirements.txt or equivalent"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -984,7 +984,7 @@
       "Step 2: Verify it prints instructions about setting up .env",
       "Step 3: Verify it prints how to run extraction and evaluation"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -994,7 +994,7 @@
       "Step 2: Verify file upload uses client.files.create() or equivalent SDK method",
       "Step 3: Verify file is opened in binary mode for upload"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1004,7 +1004,7 @@
       "Step 2: Verify extraction uses client.extract.create() or equivalent",
       "Step 3: Verify extraction parameters match spec (file_input, configuration)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1013,7 +1013,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify polling uses client.extract.get(job.id) or equivalent"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1025,7 +1025,7 @@
       "Step 4: Verify it has 'jobs' key",
       "Step 5: Verify job steps are properly structured"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1035,7 +1035,7 @@
       "Step 2: Verify it has 'name', 'on', and 'jobs' keys",
       "Step 3: Verify steps are properly structured"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1044,7 +1044,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify pr_comment.md footer includes triggered by commit info or schema reference"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1054,7 +1054,7 @@
       "Step 2: Verify extraction_output.json uses indented JSON (not minified)",
       "Step 3: Verify current_metrics.json uses indented JSON"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1064,7 +1064,7 @@
       "Step 2: Verify stdout shows progress for each invoice being processed",
       "Step 3: Verify stdout shows when upload starts and extraction completes"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1075,7 +1075,7 @@
       "Step 3: Verify it doesn't crash",
       "Step 4: Verify extra file is ignored or noted but doesn't affect accuracy"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1086,7 +1086,7 @@
       "Step 3: Verify it handles missing file gracefully",
       "Step 4: Verify accuracy accounts for missing file's fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1097,7 +1097,7 @@
       "Step 3: Verify results/ directory is created",
       "Step 4: Verify extraction_output.json is written successfully"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1107,7 +1107,7 @@
       "Step 2: Run python evaluate.py",
       "Step 3: Verify results directory is created and current_metrics.json written"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1117,7 +1117,7 @@
       "Step 2: Verify ground_truth.json is NOT excluded",
       "Step 3: Verify results/*.json IS excluded but ground_truth.json at root is safe"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1126,7 +1126,7 @@
       "Step 1: Read .gitignore",
       "Step 2: Verify metrics.json at root is NOT excluded"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1136,7 +1136,7 @@
       "Step 2: Verify WEBHOOK_URL is NOT set in any env section",
       "Step 3: Verify only LLAMA_CLOUD_API_KEY is provided as secret"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1146,7 +1146,7 @@
       "Step 2: Verify file_input parameter uses the file object ID returned from upload",
       "Step 3: Verify it does not pass local file path to extraction"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1155,12 +1155,12 @@
       "Step 1: Create ground truth with 3 files x 3 fields = 9 total fields",
       "Step 2: Create extraction output with 1 wrong field and 1 missing (null) field",
       "Step 3: Run evaluate.py",
-      "Step 4: Verify overall_accuracy = 7/9 \u2248 0.7778",
+      "Step 4: Verify overall_accuracy = 7/9 ≈ 0.7778",
       "Step 5: Verify correct_fields = 7",
       "Step 6: Verify wrong_fields = 1",
       "Step 7: Verify missing_fields = 1"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1171,7 +1171,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify the field is marked as correct"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1182,7 +1182,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify the field is marked as correct"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1193,7 +1193,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify the field is marked as wrong (not fuzzy matched)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1203,7 +1203,7 @@
       "Step 2: Search all .py files for string patterns that look like API keys",
       "Step 3: Verify API key is only read from environment"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1213,7 +1213,7 @@
       "Step 2: Run git status and verify .env does not appear in tracked files",
       "Step 3: Verify .env.example IS tracked (as template)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1224,7 +1224,7 @@
       "Step 3: Verify it shows a clear error about missing API key",
       "Step 4: Verify it exits with non-zero code"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1236,7 +1236,7 @@
       "Step 4: Verify webhook_events is ['extract.success', 'extract.error']",
       "Step 5: Verify webhook_output_format is 'json'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1245,7 +1245,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify data_schema value is InvoiceSchema.model_json_schema()"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1254,7 +1254,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify configuration includes 'extraction_target': 'per_doc'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1263,7 +1263,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify configuration includes 'tier': 'agentic'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1273,7 +1273,7 @@
       "Step 2: Verify comment search uses c.body.includes('Extraction Evaluation Results')",
       "Step 3: Verify it checks c.user.type === 'Bot'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1283,7 +1283,7 @@
       "Step 2: Verify on.push.branches is [main]",
       "Step 3: Verify it does NOT trigger on other branches"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1293,7 +1293,7 @@
       "Step 2: Verify git config user.name is 'github-actions[bot]'",
       "Step 3: Verify git config user.email is 'github-actions[bot]@users.noreply.github.com'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1303,7 +1303,7 @@
       "Step 2: Verify output JSON always has same top-level keys (one per PDF)",
       "Step 3: Verify each entry always has merchant_name, date, total keys even if null"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1313,7 +1313,7 @@
       "Step 2: Open results/pr_comment.md",
       "Step 3: Verify overall accuracy is shown as percentage (e.g., '88.9%' not '0.889')"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1323,7 +1323,7 @@
       "Step 2: Run evaluate.py --output-markdown",
       "Step 3: Verify delta shows '+X.X%' or '-X.X%' format"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1334,7 +1334,7 @@
       "Step 3: Run evaluate.py --output-markdown",
       "Step 4: Verify changes section mentions 'invoice_2.pdf: total changed from wrong to correct'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1345,7 +1345,7 @@
       "Step 3: Verify stdout table includes invoice_2.pdf",
       "Step 4: Verify stdout table includes invoice_3.pdf"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1355,7 +1355,7 @@
       "Step 2: Verify type hints use Optional from typing (not X | None union syntax if needed)",
       "Step 3: Verify no deprecated features are used"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1365,7 +1365,7 @@
       "Step 2: Verify file path construction uses pathlib.Path or os.path",
       "Step 3: Verify no hardcoded forward/backward slashes in paths"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1374,7 +1374,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify file path construction uses pathlib.Path or os.path"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1383,7 +1383,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify uses: actions/checkout@v4"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1392,7 +1392,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify uses: actions/setup-python@v5"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1401,7 +1401,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify uses: actions/github-script@v7"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1411,7 +1411,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify total_fields excludes the null ground truth field"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1422,7 +1422,7 @@
       "Step 3: Run extract.py WITH WEBHOOK_URL set",
       "Step 4: Verify 'Webhook configured' message appears in stdout"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1432,7 +1432,7 @@
       "Step 2: Run extract.py",
       "Step 3: Verify reminder message includes the actual webhook URL value"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1442,7 +1442,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify that file's accuracy is 1.0 (100%)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1452,7 +1452,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify that file's accuracy is 0.0 (0%)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1460,10 +1460,10 @@
     "steps": [
       "Step 1: Set up extraction where one file has 1 correct, 1 wrong, 1 missing field",
       "Step 2: Run evaluate.py",
-      "Step 3: Verify that file's accuracy is 1/3 \u2248 33.3%",
+      "Step 3: Verify that file's accuracy is 1/3 ≈ 33.3%",
       "Step 4: Verify correct, wrong, and missing are all counted properly"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1474,7 +1474,7 @@
       "Step 3: Load results/current_metrics.json",
       "Step 4: Verify timestamp is recent (within last few minutes)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1483,7 +1483,7 @@
       "Step 1: Open extract.py and verify it has if __name__ == '__main__' guard",
       "Step 2: Open evaluate.py and verify it has if __name__ == '__main__' guard"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1493,7 +1493,7 @@
       "Step 2: Verify exit code is non-zero",
       "Step 3: Verify error message is descriptive"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1503,7 +1503,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify exit code is 0"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1513,7 +1513,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify exit code is non-zero"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1523,7 +1523,7 @@
       "Step 2: Verify polling loop has error handling for network issues",
       "Step 3: Verify temporary failures don't crash the entire script"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1533,7 +1533,7 @@
       "Step 2: Verify extraction step appears before evaluation step",
       "Step 3: Verify PR comment step appears after evaluation step"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1543,7 +1543,7 @@
       "Step 2: Verify checkout step is first",
       "Step 3: Verify Python setup comes before script execution"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1554,7 +1554,7 @@
       "Step 3: Verify table cells contain one of: correct, wrong, missing",
       "Step 4: Verify no other status values are used"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1564,7 +1564,7 @@
       "Step 2: Verify JSON null values are handled as Python None",
       "Step 3: Verify comparison logic treats None correctly"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1597,7 +1597,7 @@
       "Step 2: Verify file operations use 'with open(...)' pattern",
       "Step 3: Verify no file handles are left open"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1606,7 +1606,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify file operations use 'with open(...)' pattern"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1616,7 +1616,7 @@
       "Step 2: Load results/extraction_output.json",
       "Step 3: Verify keys are in alphabetical order (invoice_1, invoice_2, invoice_3)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1625,7 +1625,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify name field is 'Extract & Evaluate'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1634,7 +1634,7 @@
       "Step 1: Open .github/workflows/update-baseline.yml",
       "Step 2: Verify name field is 'Update Baseline Metrics'"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1645,7 +1645,7 @@
       "Step 3: Verify adding a new PDF to data/ would be automatically processed",
       "Step 4: Verify filenames are not hardcoded"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1656,7 +1656,7 @@
       "Step 3: Verify the new field is evaluated correctly",
       "Step 4: Verify accuracy accounts for the additional field"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1667,7 +1667,7 @@
       "Step 3: Verify overall accuracy is in the summary line",
       "Step 4: Verify per-file accuracy is in the table rows"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1677,7 +1677,7 @@
       "Step 2: Verify it correctly navigates job.extract_result to get field values",
       "Step 3: Verify it maps result to {merchant_name, date, total} dict"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1687,7 +1687,7 @@
       "Step 2: Verify only pull_request trigger is defined",
       "Step 3: Verify no push trigger exists in this workflow"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1697,7 +1697,7 @@
       "Step 2: Verify only push trigger is defined",
       "Step 3: Verify no pull_request trigger in this workflow"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1708,7 +1708,7 @@
       "Step 3: Verify footer mentions InvoiceSchema",
       "Step 4: Verify footer lists fields: merchant_name, date, total"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1719,7 +1719,7 @@
       "Step 3: Verify evaluate.py handles field mismatch without crashing",
       "Step 4: Verify delta only compares common fields"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1729,7 +1729,7 @@
       "Step 2: Verify schema is dynamically generated from InvoiceSchema class",
       "Step 3: Verify changing schema.py would change extraction behavior"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1739,7 +1739,7 @@
       "Step 2: Open evaluate.py and verify file writes use utf-8 encoding",
       "Step 3: Verify JSON output handles unicode characters (e.g., Turkish Lira symbol)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1749,7 +1749,7 @@
       "Step 2: Verify accuracy percentages are rounded to reasonable decimal places",
       "Step 3: Verify no floating point artifacts in output"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1759,7 +1759,7 @@
       "Step 2: Verify bot comment search uses body.includes() for identification",
       "Step 3: Verify it uses user.type === 'Bot' for filtering"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1770,7 +1770,7 @@
       "Step 3: Verify results/extraction_output.json is properly overwritten",
       "Step 4: Verify no leftover temporary files"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1781,7 +1781,7 @@
       "Step 3: Verify results/current_metrics.json is properly overwritten",
       "Step 4: Verify metrics.json baseline is NOT overwritten"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1790,7 +1790,7 @@
       "Step 1: Open init.sh",
       "Step 2: Verify it checks Python version or at least verifies Python is installed"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1799,7 +1799,7 @@
       "Step 1: Open init.sh",
       "Step 2: Verify it creates or activates a virtual environment"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1809,7 +1809,7 @@
       "Step 2: Verify it creates .env from .env.example if not present",
       "Step 3: Verify it reminds user to fill in API key"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1819,7 +1819,7 @@
       "Step 2: Verify after file upload, file_obj.id is used as file_input",
       "Step 3: Verify the uploaded file ID is passed to extraction, not the path"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1830,7 +1830,7 @@
       "Step 3: Verify it doesn't crash",
       "Step 4: Verify accuracy is 0% for all files with non-null ground truth"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1840,7 +1840,7 @@
       "Step 2: Verify only llama-cloud, pydantic, tabulate, and python-dotenv are listed",
       "Step 3: Verify no web frameworks, databases, or frontend libraries"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1850,7 +1850,7 @@
       "Step 2: Verify no Flask, Django, FastAPI, or other framework imports",
       "Step 3: Verify no HTML, CSS, or JS files (except GitHub Actions YAML)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1860,7 +1860,7 @@
       "Step 2: Run evaluate.py --output-markdown with changes",
       "Step 3: Verify changes section shows +X.X% or -X.X% for each field change"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1869,7 +1869,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify client.files.create call includes purpose='extract' or equivalent"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1880,7 +1880,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify it works correctly with single file"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1891,7 +1891,7 @@
       "Step 3: Run evaluate.py",
       "Step 4: Verify all 5 invoices appear in output"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1901,7 +1901,7 @@
       "Step 2: Verify each step has a 'name' field",
       "Step 3: Verify names are descriptive (Checkout code, Set up Python, etc.)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1911,7 +1911,7 @@
       "Step 2: Verify each step has a 'name' field",
       "Step 3: Verify names are descriptive"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1921,7 +1921,7 @@
       "Step 2: Verify results are printed to stdout",
       "Step 3: Verify results/pr_comment.md is NOT created or updated"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1931,7 +1931,7 @@
       "Step 2: Verify output goes to results/extraction_output.json",
       "Step 3: Verify ground_truth.json is NOT modified"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1941,7 +1941,7 @@
       "Step 2: Run evaluate.py",
       "Step 3: Verify missing key is treated same as null value"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1950,7 +1950,7 @@
       "Step 1: Open .github/workflows/extract-eval.yml",
       "Step 2: Verify env uses ${{ secrets.LLAMA_CLOUD_API_KEY }} syntax"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1959,7 +1959,7 @@
       "Step 1: Open .github/workflows/update-baseline.yml",
       "Step 2: Verify env uses ${{ secrets.LLAMA_CLOUD_API_KEY }} syntax"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1970,7 +1970,7 @@
       "Step 3: Verify markdown table has proper pipe-delimited structure",
       "Step 4: Verify header separator row exists with dashes"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1979,7 +1979,7 @@
       "Step 1: Open extract.py",
       "Step 2: Verify json.dump or json.dumps uses indent parameter"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1988,7 +1988,7 @@
       "Step 1: Open evaluate.py",
       "Step 2: Verify json.dump or json.dumps uses indent parameter"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -1999,7 +1999,7 @@
       "Step 3: Verify no errors on second run",
       "Step 4: Verify environment is still correctly set up"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2010,7 +2010,7 @@
       "Step 3: Verify no delta section in output",
       "Step 4: Verify no crash or error about missing baseline"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2020,7 +2020,7 @@
       "Step 2: Verify PDFs are sorted before processing",
       "Step 3: Verify output order is deterministic"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2030,7 +2030,7 @@
       "Step 2: Verify extraction step would fail the workflow if extract.py exits non-zero",
       "Step 3: Verify evaluation step doesn't run if extraction fails"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2040,7 +2040,7 @@
       "Step 2: Verify it imports time module",
       "Step 3: Verify time.sleep(2) is called between polling attempts"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2050,7 +2050,7 @@
       "Step 2: Verify it imports tabulate from tabulate",
       "Step 3: Verify tabulate() is called to format the results table"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2062,7 +2062,7 @@
       "Step 4: Verify table uses standard markdown table format",
       "Step 5: Verify italic text uses underscore syntax"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2072,7 +2072,7 @@
       "Step 2: Verify it prints filename before processing each PDF",
       "Step 3: Verify it prints status updates during extraction (uploading, extracting, done)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2086,7 +2086,7 @@
       "Step 6: Verify ground_truth.json location is at project root",
       "Step 7: Verify metrics.json location is at project root"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2096,7 +2096,7 @@
       "Step 2: Verify it has a top-level heading with project name",
       "Step 3: Verify it has a brief description of the project purpose"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2107,7 +2107,7 @@
       "Step 3: Verify it mentions requirements.txt installation",
       "Step 4: Verify it mentions .env configuration"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2117,7 +2117,7 @@
       "Step 2: Verify it documents how to run extract.py",
       "Step 3: Verify it mentions --init-ground-truth flag"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2127,7 +2127,7 @@
       "Step 2: Verify it documents how to run evaluate.py",
       "Step 3: Verify it mentions --output-markdown flag"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2138,7 +2138,7 @@
       "Step 3: Verify it describes the baseline update workflow",
       "Step 4: Verify it explains what triggers each workflow"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2149,7 +2149,7 @@
       "Step 3: Verify it explains how webhook integration works",
       "Step 4: Verify it mentions webhook.site for testing"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2159,7 +2159,7 @@
       "Step 2: Verify it lists LLAMA_CLOUD_API_KEY as required",
       "Step 3: Verify it lists WEBHOOK_URL as optional"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2168,7 +2168,7 @@
       "Step 1: Open extract.py and verify main function has a docstring",
       "Step 2: Open evaluate.py and verify main function has a docstring"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2178,7 +2178,7 @@
       "Step 2: Verify InvoiceSchema class has a docstring",
       "Step 3: Verify docstring describes the purpose of the schema"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2189,7 +2189,7 @@
       "Step 3: Verify import organization (stdlib, third-party, local)",
       "Step 4: Verify line lengths are reasonable"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2198,7 +2198,7 @@
       "Step 1: Open extract.py and verify imports are grouped by type",
       "Step 2: Open evaluate.py and verify imports are grouped by type"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2209,7 +2209,7 @@
       "Step 3: Verify tabulate table is aligned and easy to read",
       "Step 4: Verify overall accuracy summary is prominent"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2220,7 +2220,7 @@
       "Step 3: Verify table headers are bold or styled appropriately",
       "Step 4: Verify accuracy numbers are easy to scan"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2231,7 +2231,7 @@
       "Step 3: Verify it shows which file is being processed",
       "Step 4: Verify final summary is easy to understand"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2241,7 +2241,7 @@
       "Step 2: Verify YAML is properly formatted with consistent indentation",
       "Step 3: Verify step names are clear"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2251,7 +2251,7 @@
       "Step 2: Verify YAML is properly formatted",
       "Step 3: Verify step names are clear"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2261,7 +2261,7 @@
       "Step 2: Verify each variable has a comment explaining its purpose",
       "Step 3: Verify comments mention where to get the API key"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2271,7 +2271,7 @@
       "Step 2: Verify JSON is indented for readability",
       "Step 3: Verify keys are consistently formatted"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2280,7 +2280,7 @@
       "Step 1: Open metrics.json",
       "Step 2: Verify JSON is indented for readability"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2290,7 +2290,7 @@
       "Step 2: Open evaluate.py and check error messages",
       "Step 3: Verify errors tell the user what went wrong and how to fix it"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2300,7 +2300,7 @@
       "Step 2: Verify it contains a tree or listing of the project structure",
       "Step 3: Verify key files are explained"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2311,7 +2311,7 @@
       "Step 3: Verify date description clearly states YYYY-MM-DD format",
       "Step 4: Verify total description clearly states to include currency symbol"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2320,7 +2320,7 @@
       "Step 1: Run evaluate.py --output-markdown",
       "Step 2: Verify overall accuracy line uses **bold** formatting"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2329,7 +2329,7 @@
       "Step 1: Run evaluate.py --output-markdown",
       "Step 2: Verify schema info line uses _italic_ formatting"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2339,7 +2339,7 @@
       "Step 2: Verify output starts with a clear header or separator",
       "Step 3: Verify it's easy to distinguish from other terminal output"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2348,7 +2348,7 @@
       "Step 1: Run extract.py",
       "Step 2: Verify it shows some indication of time taken per file or overall"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2358,7 +2358,7 @@
       "Step 2: Verify output uses clear sections or formatting",
       "Step 3: Verify success/failure states are visually distinct"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2368,7 +2368,7 @@
       "Step 2: Open evaluate.py and verify variable names are descriptive",
       "Step 3: Verify no single-letter variables (except loop counters)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2378,7 +2378,7 @@
       "Step 2: Verify table headers are: File, Accuracy, merchant_name, date, total",
       "Step 3: Verify headers match the schema field names"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2388,7 +2388,7 @@
       "Step 2: Verify step names describe what the step does",
       "Step 3: Verify names like 'Checkout code', 'Set up Python', 'Run extraction', etc."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2398,7 +2398,7 @@
       "Step 2: Verify it mentions the pre-provisioned webhook.site URL",
       "Step 3: Verify it explains how to view webhook payloads in browser"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2408,7 +2408,7 @@
       "Step 2: Verify percentages use consistent format (e.g., always 1 decimal place)",
       "Step 3: Verify both stdout and markdown use same precision"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2417,7 +2417,7 @@
       "Step 1: Open README.md",
       "Step 2: Verify it communicates this is a demo project for LlamaExtract CI/CD"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2426,7 +2426,7 @@
       "Step 1: Open requirements.txt",
       "Step 2: Verify each dependency has a version specifier (>=X.Y)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2435,7 +2435,7 @@
       "Step 1: Run evaluate.py --output-markdown with baseline changes",
       "Step 2: Verify changes are listed with markdown bullet points (- prefix)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2445,7 +2445,7 @@
       "Step 2: Verify final summary mentions how many files were processed",
       "Step 3: Verify it shows success/failure count"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2454,7 +2454,7 @@
       "Step 1: Open schema.py, extract.py, evaluate.py",
       "Step 2: Verify quote style is consistent within each file"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2463,7 +2463,7 @@
       "Step 1: Run evaluate.py --output-markdown",
       "Step 2: Verify footer mentions commit hash or trigger context"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2502,7 +2502,7 @@
       "Step 12: Verify pr_comment.md contains overall accuracy with delta vs baseline",
       "Step 13: Verify pr_comment.md contains markdown table with all invoices"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2572,12 +2572,12 @@
       "Step 7: Verify correct_fields = 7",
       "Step 8: Verify wrong_fields = 1",
       "Step 9: Verify missing_fields = 1",
-      "Step 10: Verify overall_accuracy = 7/9 \u2248 0.7778",
+      "Step 10: Verify overall_accuracy = 7/9 ≈ 0.7778",
       "Step 11: Verify invoice_1 accuracy = 100%",
       "Step 12: Verify invoice_2 accuracy = 66.7%",
       "Step 13: Verify invoice_3 accuracy = 66.7%"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2596,7 +2596,7 @@
       "Step 11: Verify step 5 runs evaluate.py --output-markdown",
       "Step 12: Verify step 6 posts PR comment with actions/github-script@v7"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2615,7 +2615,7 @@
       "Step 11: Verify git user config for github-actions[bot]",
       "Step 12: Verify conditional commit (only if changes exist)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2632,7 +2632,7 @@
       "Step 9: Verify both paths use the full comment body from pr_comment.md",
       "Step 10: Verify context.repo.owner and context.repo.repo are used correctly"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2650,7 +2650,7 @@
       "Step 10: Verify README.md exists with project documentation",
       "Step 11: Verify init.sh exists and is executable"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2667,7 +2667,7 @@
       "Step 9: Verify overall accuracy reflects both changes",
       "Step 10: Verify markdown formatting is correct for all change entries"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2684,7 +2684,7 @@
       "Step 9: Verify error message doesn't leak the key value",
       "Step 10: Verify WEBHOOK_URL is not treated as a secret (it's in .env.example)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2701,7 +2701,7 @@
       "Step 9: Verify it handles errors gracefully (set -e or error checking)",
       "Step 10: Verify running it twice doesn't cause errors (idempotent)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2718,7 +2718,7 @@
       "Step 9: Verify README has environment variables section",
       "Step 10: Verify README has project structure tree"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2735,7 +2735,7 @@
       "Step 9: Verify polling loop starts after job creation",
       "Step 10: Verify result extraction from job.extract_result on completion"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2756,7 +2756,7 @@
       "Step 13: Verify 'missing_fields' is an integer",
       "Step 14: Verify 'wrong_fields' is an integer"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2774,7 +2774,7 @@
       "Step 10: Verify schema footer: '_Schema: InvoiceSchema with fields: merchant_name, date, total_'",
       "Step 11: Verify commit reference footer"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2791,7 +2791,7 @@
       "Step 9: Verify .gitignore itself is not excluded",
       "Step 10: Verify *.pdf in results/ could be excluded if needed"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2808,7 +2808,7 @@
       "Step 9: Verify no webhook-related errors",
       "Step 10: Verify extract_kwargs does not contain webhook_configurations"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2825,7 +2825,7 @@
       "Step 9: Verify all per_file accuracies = 1.0",
       "Step 10: Verify all field 'correct' booleans are true"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2842,7 +2842,7 @@
       "Step 9: Verify all field 'correct' booleans are false",
       "Step 10: Verify the program doesn't crash on 0% accuracy"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "style",
@@ -2859,7 +2859,7 @@
       "Step 9: Verify consistent spacing",
       "Step 10: Preview as GitHub markdown and verify rendering"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2874,7 +2874,7 @@
       "Step 7: Verify PR comment shows how schema change affected accuracy",
       "Step 8: Verify baseline update workflow also triggers on schema.py push to main",
       "Step 9: Verify baseline update commits new metrics.json",
-      "Step 10: Verify the cycle is complete: PR \u2192 evaluate \u2192 merge \u2192 update baseline"
+      "Step 10: Verify the cycle is complete: PR → evaluate → merge → update baseline"
     ],
     "passes": false
   },
@@ -2893,7 +2893,7 @@
       "Step 9: Verify no stack traces are shown to user (caught exceptions)",
       "Step 10: Verify summary shows which files succeeded and which failed"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
@@ -2910,6 +2910,6 @@
       "Step 9: Verify non-zero exit code on fatal errors",
       "Step 10: Verify partial results are not written on error"
     ],
-    "passes": false
+    "passes": true
   }
 ]

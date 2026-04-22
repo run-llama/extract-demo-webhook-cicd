@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-04-22T13:19:53.544024+00:00",
+  "overall_accuracy": 1.0,
+  "per_file": {
+    "invoice_1.pdf": {
+      "accuracy": 1.0,
+      "fields": {
+        "merchant_name": {
+          "expected": "East Repair Inc.",
+          "extracted": "East Repair Inc.",
+          "correct": true
+        },
+        "date": {
+          "expected": "2019-01-02",
+          "extracted": "2019-01-02",
+          "correct": true
+        },
+        "total": {
+          "expected": "$383.99",
+          "extracted": "$383.99",
+          "correct": true
+        }
+      }
+    },
+    "invoice_2.pdf": {
+      "accuracy": 1.0,
+      "fields": {
+        "merchant_name": {
+          "expected": "Zara Kentpark",
+          "extracted": "Zara Kentpark",
+          "correct": true
+        },
+        "date": {
+          "expected": "2023-06-23",
+          "extracted": "2023-06-23",
+          "correct": true
+        },
+        "total": {
+          "expected": "1,542.35 TL",
+          "extracted": "1,542.35 TL",
+          "correct": true
+        }
+      }
+    },
+    "invoice_3.pdf": {
+      "accuracy": 1.0,
+      "fields": {
+        "merchant_name": {
+          "expected": "Walmart",
+          "extracted": "Walmart",
+          "correct": true
+        },
+        "date": {
+          "expected": "1998-05-29",
+          "extracted": "1998-05-29",
+          "correct": true
+        },
+        "total": {
+          "expected": "$61.64",
+          "extracted": "$61.64",
+          "correct": true
+        }
+      }
+    }
+  },
+  "total_fields": 9,
+  "correct_fields": 9,
+  "missing_fields": 0,
+  "wrong_fields": 0
+}

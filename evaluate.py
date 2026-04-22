@@ -85,17 +85,29 @@ def main():
         print(f"Error: {extraction_path} not found. Run 'python extract.py' first.")
         sys.exit(1)
 
-    with open(gt_path, encoding="utf-8") as f:
-        ground_truth = json.load(f)
+    try:
+        with open(gt_path, encoding="utf-8") as f:
+            ground_truth = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Error: {gt_path} contains invalid JSON: {e}")
+        sys.exit(1)
 
-    with open(extraction_path, encoding="utf-8") as f:
-        extracted = json.load(f)
+    try:
+        with open(extraction_path, encoding="utf-8") as f:
+            extracted = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Error: {extraction_path} contains invalid JSON: {e}")
+        sys.exit(1)
 
     # Load baseline if exists
     baseline = None
     if baseline_path.exists():
-        with open(baseline_path, encoding="utf-8") as f:
-            baseline = json.load(f)
+        try:
+            with open(baseline_path, encoding="utf-8") as f:
+                baseline = json.load(f)
+        except json.JSONDecodeError:
+            print(f"Warning: {baseline_path} contains invalid JSON, ignoring baseline.")
+            baseline = None
 
     # Get fields from schema
     fields = list(InvoiceSchema.model_fields.keys())

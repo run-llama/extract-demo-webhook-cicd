@@ -86,7 +86,11 @@ def main():
             start_time = time.time()
             while job.status not in ("COMPLETED", "FAILED", "CANCELLED"):
                 time.sleep(2)
-                job = client.extract.get(job.id)
+                try:
+                    job = client.extract.get(job.id)
+                except Exception as e:
+                    print(f"  Warning: polling error ({e}), retrying...")
+                    continue
 
             elapsed = time.time() - start_time
 
@@ -125,7 +129,7 @@ def main():
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        json.dump(dict(sorted(results.items())), f, indent=2, ensure_ascii=False)
 
     print(f"Results saved to {output_path}")
     print(f"Summary: {success_count} succeeded, {fail_count} failed out of {len(pdf_files)} files.")
