@@ -10,13 +10,13 @@ class InvoiceSchema(BaseModel):
 
     merchant_name: Optional[str] = Field(
         default=None,
-        description="The name of the store or merchant on the receipt",
+        description="The name of the store, merchant, or vendor shown on the receipt or invoice",
     )
     date: Optional[str] = Field(
         default=None,
-        description="The date of the transaction, in YYYY-MM-DD format",
+        description="The date of the transaction or invoice, in YYYY-MM-DD format",
     )
     total: Optional[str] = Field(
         default=None,
-        description="The total amount charged, including currency symbol if present",
+        description="The total amount charged including tax, with currency symbol if present",
     )
