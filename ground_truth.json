@@ -1,17 +1,17 @@
 {
   "invoice_1.pdf": {
-    "merchant_name": "East Repair Inc.",
-    "date": "2019-01-02",
-    "total": "$383.99"
+    "merchant_name": "",
+    "date": "2018-02-01",
+    "total": "$363.99"
   },
   "invoice_2.pdf": {
-    "merchant_name": "Zara Kentpark",
-    "date": "2023-06-23",
-    "total": "1,542.35 TL"
+    "merchant_name": "ZARA - KENTPARK",
+    "date": "2023-06-06",
+    "total": "TL1.542,35"
   },
   "invoice_3.pdf": {
-    "merchant_name": "Walmart",
+    "merchant_name": "WAL★MART",
     "date": "1998-05-29",
-    "total": "$61.64"
+    "total": "61.64"
   }
 }
