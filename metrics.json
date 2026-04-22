@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-22T13:58:08.195676+00:00",
-  "overall_accuracy": 1.0,
+  "timestamp": "2026-04-22T18:12:32.564977+00:00",
+  "overall_accuracy": 0.8888888888888888,
   "per_file": {
     "invoice_1.pdf": {
       "accuracy": 1.0,
@@ -43,12 +43,12 @@
       }
     },
     "invoice_3.pdf": {
-      "accuracy": 1.0,
+      "accuracy": 0.6666666666666666,
       "fields": {
         "merchant_name": {
           "expected": "WAL★MART",
-          "extracted": "WAL★MART",
-          "correct": true
+          "extracted": "Walmart",
+          "correct": false
         },
         "date": {
           "expected": "1998-05-29",
@@ -64,7 +64,7 @@
     }
   },
   "total_fields": 9,
-  "correct_fields": 9,
+  "correct_fields": 8,
   "missing_fields": 0,
-  "wrong_fields": 0
+  "wrong_fields": 1
 }
