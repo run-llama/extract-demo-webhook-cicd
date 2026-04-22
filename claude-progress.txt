@@ -106,3 +106,26 @@ NEXT STEPS:
 - Run extract.py to verify real API integration
 - Run extract.py --init-ground-truth to generate real ground truth
 - Mark remaining 14 tests after verification with real API
+
+Session 4 Progress
+==================
+Date: 2026-04-22
+
+COMPLETED:
+1. Verified all 252 passing tests still work:
+   - schema.py: InvoiceSchema correct with all Optional[str] fields
+   - evaluate.py: accuracy table, markdown output, delta computation all working
+   - evaluate.py edge cases: case-insensitive, whitespace, missing/wrong/extra fields all correct
+   - GitHub Actions workflows: extract-eval.yml and update-baseline.yml properly configured
+2. Attempted extraction with OPENAI_API_KEY (sk-llama-cloud-local-dev-...) - returns 401 AuthenticationError
+3. No valid LLAMA_CLOUD_API_KEY available in environment
+
+STATUS: 252/266 tests passing (same as previous session)
+
+REMAINING (14 tests):
+All 14 tests require a valid LLAMA_CLOUD_API_KEY to run real LlamaExtract API calls.
+No further progress possible without a valid API key.
+
+NEXT STEPS:
+- A valid LLAMA_CLOUD_API_KEY must be provided in .env to proceed
+- Once key is available: run extract.py, verify output, mark remaining 14 tests
