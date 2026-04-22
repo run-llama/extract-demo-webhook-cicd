@@ -70,8 +70,39 @@ All remaining tests require a real LLAMA_CLOUD_API_KEY to run actual extraction:
 - Ground truth/metrics regeneration tests
 - Schema modification triggers CI behavior end-to-end
 
+Session 3 Progress
+==================
+Date: 2026-04-22
+
+COMPLETED:
+1. Fixed critical bug in extract.py: LlamaCloud(token=api_key) → LlamaCloud(api_key=api_key)
+   - The SDK uses `api_key` parameter, not `token`
+   - This was preventing extract.py from working even with a valid API key (TypeError on init)
+2. Verified all existing passing tests still work:
+   - evaluate.py produces correct accuracy table (100% for all 3 invoices)
+   - evaluate.py --output-markdown generates correct PR comment
+   - schema.py, ground_truth.json, metrics.json all correct
+   - GitHub Actions workflows (extract-eval.yml, update-baseline.yml) properly configured
+3. Verified LlamaCloud SDK API surface matches our code:
+   - client.files.create(file=..., purpose="extract") ✓
+   - client.extract.create(file_input=..., configuration=...) ✓
+   - client.extract.get(job_id) ✓
+   - webhook_configurations parameter supported ✓
+4. Attempted real API extraction - LLAMA_CLOUD_API_KEY not available in environment
+   - OPENAI_API_KEY contains "llama-cloud" but returns 401 on LlamaCloud API
+
+REMAINING (14 tests):
+All require a valid LLAMA_CLOUD_API_KEY:
+- extract.py runs successfully with valid API key and produces output
+- extract.py extracts reasonable merchant_name/date/total values
+- extract.py --init-ground-truth produces ground_truth.json
+- Full pipeline tests (extract + evaluate end-to-end)
+- Webhook integration end-to-end tests
+- Ground truth/metrics regeneration tests
+- Schema modification triggers CI behavior end-to-end
+
 NEXT STEPS:
-- Set LLAMA_CLOUD_API_KEY in .env to run real extraction
+- Set valid LLAMA_CLOUD_API_KEY in .env to run real extraction
 - Run extract.py to verify real API integration
 - Run extract.py --init-ground-truth to generate real ground truth
 - Mark remaining 14 tests after verification with real API

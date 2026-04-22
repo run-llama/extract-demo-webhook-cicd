@@ -33,7 +33,7 @@ def main():
 
     webhook_url = os.getenv("WEBHOOK_URL")
 
-    client = LlamaCloud(token=api_key)
+    client = LlamaCloud(api_key=api_key)
 
     data_dir = Path("data")
     pdf_files = sorted(data_dir.glob("*.pdf"))
