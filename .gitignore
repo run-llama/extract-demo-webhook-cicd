@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+results/*.json
+results/*.md
+.venv/
+*.egg-info/
+dist/
+build/
+.current_prompt.md
+logs/
+.agent_done
