@@ -162,3 +162,26 @@ No further progress possible without a valid API key.
 NEXT STEPS:
 - A valid LLAMA_CLOUD_API_KEY must be provided in .env to proceed
 - Once key is available: run extract.py, verify output, mark remaining 13 tests
+
+Session 6 Progress
+==================
+Date: 2026-04-22
+
+COMPLETED:
+1. Verified all existing tests still pass:
+   - evaluate.py produces correct accuracy table (100% for all 3 invoices)
+   - evaluate.py --output-markdown generates correct PR comment
+   - schema.py imports correctly, model_json_schema() returns expected structure
+   - extract.py imports correctly
+2. Reviewed all code (extract.py, evaluate.py, workflows) - no bugs found
+3. Confirmed no LLAMA_CLOUD_API_KEY available (env only has OPENAI_API_KEY which returns 401)
+
+STATUS: 253/266 tests passing (unchanged from previous session)
+
+REMAINING (13 tests - indices [70,71,72,73,74,82,83,152,153,241,243,244,245]):
+All require running extract.py with a valid LLAMA_CLOUD_API_KEY.
+No further progress possible without a valid API key.
+
+NEXT STEPS:
+- A valid LLAMA_CLOUD_API_KEY must be provided in .env to proceed
+- Once key is available: run extract.py, verify output, mark remaining 13 tests
