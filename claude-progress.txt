@@ -1,0 +1,37 @@
+Session 1 Progress - Initializer Agent
+=======================================
+Date: 2026-04-22
+
+COMPLETED:
+1. feature_list.json - 266 test cases (203 functional, 38 style, 25 with 10+ steps)
+   - All tests start with passes: false
+   - Ordered by priority: scaffolding > schema > extract > evaluate > CI/CD > webhook > edge cases
+   - Comprehensive coverage of entire app_spec.txt
+
+2. Project structure created:
+   - requirements.txt (llama-cloud, pydantic, tabulate, python-dotenv)
+   - .env.example with LLAMA_CLOUD_API_KEY and WEBHOOK_URL placeholders
+   - .gitignore (excludes .env, __pycache__, results/*.json)
+   - data/ with invoice_1.pdf, invoice_2.pdf, invoice_3.pdf
+   - results/.gitkeep
+
+3. Core scripts implemented:
+   - schema.py - InvoiceSchema Pydantic model (merchant_name, date, total)
+   - extract.py - Full extraction pipeline with webhook support, polling, --init-ground-truth
+   - evaluate.py - Field-level accuracy, delta computation, --output-markdown PR comments
+
+4. CI/CD workflows:
+   - .github/workflows/extract-eval.yml - PR evaluation triggered on schema.py changes
+   - .github/workflows/update-baseline.yml - Baseline update on push to main
+
+5. init.sh - Setup script (venv, deps, .env creation)
+6. README.md - Full project documentation
+7. Git initialized with initial commit (91e194b)
+
+NOT YET DONE (for next sessions):
+- Install dependencies and verify scripts parse correctly
+- Run extract.py with real API key to generate ground_truth.json
+- Run evaluate.py to generate metrics.json baseline
+- Commit ground_truth.json and metrics.json
+- Mark passing features in feature_list.json
+- End-to-end testing of full pipeline
