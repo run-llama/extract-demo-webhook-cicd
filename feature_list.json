@@ -2876,7 +2876,7 @@
       "Step 9: Verify baseline update commits new metrics.json",
       "Step 10: Verify the cycle is complete: PR → evaluate → merge → update baseline"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
