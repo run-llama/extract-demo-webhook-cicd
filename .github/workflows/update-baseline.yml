@@ -1,6 +1,7 @@
 name: Update Baseline Metrics
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -25,6 +26,7 @@ jobs:
       - name: Run extraction and evaluation
         env:
           LLAMA_CLOUD_API_KEY: ${{ secrets.LLAMA_CLOUD_API_KEY }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: |
           python extract.py
           python evaluate.py

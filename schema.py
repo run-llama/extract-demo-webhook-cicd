@@ -3,7 +3,10 @@ from typing import Optional
 
 
 class InvoiceSchema(BaseModel):
-    """Schema for extracting key fields from receipt/invoice images."""
+    """Schema for extracting key fields from receipt/invoice images.
+
+    Supports merchant name, transaction date, and total amount extraction.
+    """
 
     merchant_name: Optional[str] = Field(
         default=None,

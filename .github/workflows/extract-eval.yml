@@ -1,6 +1,7 @@
 name: Extract & Evaluate
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'schema.py'
@@ -26,6 +27,7 @@ jobs:
       - name: Run extraction
         env:
           LLAMA_CLOUD_API_KEY: ${{ secrets.LLAMA_CLOUD_API_KEY }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: python extract.py
 
       - name: Run evaluation
